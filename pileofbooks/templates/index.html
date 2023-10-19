@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> My Bookshelf </title>
+    <style>
+        body {
+ background-image: url("https://image.shutterstock.com/mosaic_250/168506352/1493847671/stock-photo-vintage-paper-background-isolated-clipping-path-included-1493847671.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+margin-left: 70px;
+margin-right: 70px;
+        }
+    </style>
+</head>
+<br><br>
+<h2 style="text-align:center;text-decoration:underline">My Bookshelf</h2><hr>
+<!-- <img style="float:right;margin-right:70px;" src="https://i.etsystatic.com/21540895/r/il/9047c6/2465790035/il_570xN.2465790035_5dni.jpg" height="350" width="450"> <br> <br> -->
+<table class="table table-striped" border="2">
+{% for x in mybooks %}
+<tr>
+    <td><a href="update/{{ x.id }}">{{ x.id }}</a></td>
+    <td>{{ x.title }}</td>
+    <td>{{ x.author }}</td>
+    
+    <td><a href="delete/{{ x.id }}">  <button type="button" class="btn btn-danger">Delete Book</button></td></a></td>
+</tr>
+{% endfor %}
+</table>
+
+<p>
+    <!-- <button href="add/" type="button" class="btn btn-primary">Add Book</button> -->
+
+    <a href="add/">    <button type="button" class="btn btn-primary">Add Book</button></a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    <title> Update a book</title>
+</head>
+<h1>Update Book</h1>
+
+<form action="updaterecord/{{ mybook.id }}" method="post">
+{% csrf_token %}
+Title:<br>
+<input name="title" value="{{ mybook.title }}">
+<br><br>
+Author:<br>
+<input name="author" value="{{ mybook.author }}">
+<br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
