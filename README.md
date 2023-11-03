@@ -1,2 +1,2 @@
 # bookshelf
-<p>A web-based reading tracker created using HTML, CSS and Django.</p>
+<p>A Django web application for tracking your reading progress created using HTML, CSS and Django.</p>
