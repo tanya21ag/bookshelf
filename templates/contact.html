@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title%}
+Contact
+{% endblock title%}
+
+
+{% block body%}
+
+
+<h1> Contact Us </h1>
+<form method="post" action="/contact" style="margin:20px">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" aria-describedby="emailHelp">
+      </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Query</label>
+        <input type="text" class="form-control" id="query" name="query" placeholder="Enter your query" aria-describedby="emailHelp">
+      </div>
+
+    
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" name="updates" id="updates">
+      <label class="form-check-label" for="updates">Receive future updates on your query</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock body%}
+

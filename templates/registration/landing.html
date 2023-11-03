@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Get Started
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="display-4">Welcome to Bookshelf</h1>
+    <p class="lead">Track your book reading progress with ease.</p>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-primary btn-lg btn-block" href="/register">Register</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary btn-lg btn-block" href="/login">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}
