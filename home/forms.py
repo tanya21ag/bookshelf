@@ -5,9 +5,10 @@ from .models import ReadingProgress
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ['title', 'author', 'publication_date']
+        fields = ['title', 'author']
 
 class ReadingProgressForm(forms.ModelForm):
     class Meta:
         model = ReadingProgress
         fields = ['page_number']
+

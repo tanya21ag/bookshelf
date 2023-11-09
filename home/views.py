@@ -2,13 +2,15 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseForbidden
 from django.urls import reverse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from home.models import Contact
 from django.contrib import messages
-from datetime import datetime
 from .models import Book, ReadingProgress
 from .forms import BookForm
 from .forms import ReadingProgressForm
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 
 def home(request):
     return render(request, 'home.html')
@@ -24,7 +26,7 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         query = request.POST.get('query')
-        contact = Contact(name=name, email=email, query=query, date=datetime.today())
+        contact = Contact(name=name, email=email, query=query)
         contact.save()
         messages.success(request, "Your query has been sent.")
     return render(request, 'contact.html')
@@ -42,15 +44,20 @@ def register(request):
 
 def user_login(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect(reverse('bookshelf'))
+        if 'username' in request.POST and 'password' in request.POST:
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect(reverse('bookshelf'))
+            else:
+                # Handle authentication failure
+                pass
         else:
-            # Handle login failure (e.g., display an error message)
+            # Handle missing 'username' or 'password' fields in the POST data
             pass
+
     return render(request, 'registration/login.html')
 
 def user_logout(request):
@@ -64,33 +71,37 @@ def bookshelf(request):
     user = request.user
     reading_list = Book.objects.filter(user=user)
     reading_progress = ReadingProgress.objects.filter(user=user)
-
     return render(request, 'bookshelf.html', {'reading_list': reading_list, 'reading_progress': reading_progress})
-
 
 def add_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
+            user = request.user
             book = form.save(commit=False)
-            book.user = request.user  # Assign the current user to the book
+            book.user = user
             book.save()
-            return redirect('bookshelf')  # Redirect to the bookshelf page
-    else:
-        form = BookForm()
-    return render(request, 'add_book.html', {'form': form})
+            progress = ReadingProgress(book=book, page_number=0, user=user)
+            progress.save()
+    return redirect('bookshelf')
 
-
+@login_required
+@require_POST
 def update_progress(request, book_id):
-    book = Book.objects.get(pk=book_id)
-    if book.user == request.user:  # Check if the book belongs to the current user
-        if request.method == 'POST':
-            form = ReadingProgressForm(request.POST, instance=book.readingprogress)
-            if form.is_valid():
-                form.save()
-                return redirect('bookshelf')  # Redirect to the bookshelf page
-        else:
-            form = ReadingProgressForm(instance=book.readingprogress)
-        return render(request, 'update_progress.html', {'form': form, 'book': book})
+    user = request.user
+    page_number = request.POST.get('page_number')
+    book = Book.objects.get(id=book_id)
+    reading_progress, created = ReadingProgress.objects.get_or_create(user=user, book=book)
+    reading_progress.page_number = page_number
+    reading_progress.save()
+    if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest':
+        response_data = {'message': 'Progress updated successfully'}
+        return JsonResponse(response_data)
     else:
-        return HttpResponseForbidden("You don't have permission to update this book's progress.")
+        return redirect('bookshelf')
+
+def delete_book(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    if request.method == 'POST':
+        book.delete()
+    return redirect('bookshelf')

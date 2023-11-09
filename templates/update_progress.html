@@ -1,5 +1,22 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update Progress</button>
-</form>
+{% extends "base.html" %}
+
+{% block title %}
+Update Reading Progress
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="display-4">Update Reading Progress for {{ book.title }}</h1>
+</div>
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        <label for="page_number">Page Number:</label>
+        <input type="number" name="page_number" id="page_number" required>
+        <button type="submit">Update Progress</button>
+    </form>
+</div>
+
+{% endblock body %}
+ 

@@ -12,37 +12,123 @@ Bookshelf
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-md-6">
-            <h2>Your Reading List</h2>
-            <!-- Add content to display the user's reading list here -->
-                <ul>
-                    {% for book in reading_list %}
-                        <li>{{ book.title }}</li>
-                    {% endfor %}
-                </ul>
-        </div>
-        <div class="col-md-6">
-            <h2>Reading Progress</h2>
-            <!-- Add content to display the user's reading progress here -->
-                <ul>
+        <div class="col-md-12">
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Page Number</th>
+                        <th>Update Progress</th>
+                        <th>Delete Book</th>
+                    </tr>
+                </thead>
+                <tbody id="bookshelf-table">
                     {% for progress in reading_progress %}
-                        <li>{{ progress.book.title }} - {{ progress.page_number }} pages</li>
+                        <tr>
+                            <td>{{ progress.book.title }}</td>
+                            <td>{{ progress.book.author }}</td>
+                            <td>{{ progress.page_number }} </td>
+                            <td>
+                                <form action="{% url 'update_progress' progress.book.id %}" method="post"
+                                    class="update-progress-form">
+                                    {% csrf_token %}
+                                    <input type="number" name="page_number" placeholder="Enter Page Number">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'delete_book' progress.book.id %}" method="post" class="delete-book-form">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
                     {% endfor %}
-                </ul>
+                </tbody>
+            </table>
+            <form id="add-book-form" action="{% url 'add_book' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="title" placeholder="Enter Title">
+                <input type="text" name="author" placeholder="Enter Author">
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
         </div>
     </div>
 </div>
-
-<form action="{% url 'add_book' %}" method="get">
-    <button type="submit">Add Book</button>
-</form>
-
-    
-{% for book in reading_list %}
-
-<form action="{% url 'update_progress' book.id %}" method="get">
-    <button type="submit">Update Progress for {{ book.title }}</button>
-</form>
-{% endfor %}
+</div>
 
 {% endblock body %}
+
+
+{% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Handle the form submission for adding a new book
+        $('form#add-book-form').on('submit', function(event) {
+            event.preventDefault();
+
+            // Get the book title and author values
+            var titleInput = $(this).find('input[name="title"]');
+            var authorInput = $(this).find('input[name="author"]');
+            var title = titleInput.val().trim();
+            var author = authorInput.val().trim();
+
+            if (title === '' || author === '') {
+                // Check if either the title or author is empty
+                alert("Please enter both title and author.");
+                return;
+            }
+
+            // Send a POST request to add the new book
+            $.ajax({
+                url: $(this).attr('action'),
+                method: 'post',
+                data: $(this).serialize() + '&csrfmiddlewaretoken=' + $('input[name="csrfmiddlewaretoken"]').val(),
+                success: function(response) {
+                   
+                    // Create a new row and add it to the table
+                    var newRow = '<tr><td>' + response.title + '</td><td>' + response.author + '</td>' +
+                        '<td>0 </td><td>' +
+                        '<form action="{% url 'update_progress' 0 %}" method="post">' +
+                        '<input type="hidden" name="book_id" value="' + response.book_id + '">' +
+                        '<input type="number" name="page_number" placeholder="Enter Page Number">' +
+                        '<button type="submit" class="btn btn-primary">Update</button></form></td></tr>';
+
+                    // Append the new row to the table
+                    $('#bookshelf-table').append(newRow);
+
+
+                    // Clear the form after adding the book
+                    titleInput.val('');
+                    authorInput.val('');
+                }
+            });
+        });
+
+        // Handle the form submission for updating progress
+        $('form.update-progress-form').on('submit', function(event) {
+            event.preventDefault();
+
+            var form = $(this);
+
+            // Send a POST request to update the progress
+            $.ajax({
+                url: form.attr('action'),
+                method: 'post',
+                data: $(this).serialize() + '&csrfmiddlewaretoken=' + $('input[name="csrfmiddlewaretoken"]').val(),
+                success: function(response) {
+                    // Redirect to the bookshelf page
+                    window.location.href = "{% url 'bookshelf' %}";
+                }
+            });
+        });
+    });
+
+</script>  {% endcomment %}
+
