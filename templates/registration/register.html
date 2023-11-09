@@ -1,14 +1,41 @@
 {% extends "base.html" %}
 
 {% block title %}
-User Registration
+Sign up - Bookshelf
 {% endblock title %}
 
 {% block body %}
-    <h2>User Registration</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
+<nav class="navbar navbar-expand-lg" style=" background-color: #f4f4f4;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Bookshelf</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+<div class="login-page">
+    <div class="login-card" style="width:350px">
+        <h2>Sign up</h2>
+        <p> Create a free account with your email. </p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="email" name="username" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password1" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password2" placeholder="Confirm password" required>
+            </div>
+            <button class="btn-2" type="submit">Create your free account</button>
+            <p> Already have an account? <a href="/login" class="signup"> Sign in </a> </p> 
+
+        </form>
+    </div>
+</div>
 {% endblock body %}
