@@ -59,11 +59,11 @@ body, .navbar {
 }
 
 .left-half h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
   text-align: center;
-  margin-top: 100px;
-  margin-left: 50px;
+  margin-top: 70px;
+  margin-left: 65px;
   line-height: 1.1em;
   letter-spacing: -0.045em;
   color: #000;
@@ -73,6 +73,9 @@ body, .navbar {
   width: 70%;
   margin-right: 0.5rem;
   margin-left: 1rem;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .right-half {
@@ -83,7 +86,7 @@ body, .navbar {
   justify-content: flex-end;
   align-items: flex-end;
   overflow: hidden;
-  margin-top: 130px;
+  margin-top: 110px;
 }
 
 .img1 {
@@ -226,6 +229,13 @@ button a {
   text-decoration: none;
   padding: 2px 4px 2px 4px;
 
+}
+
+.create-btn {
+  padding: 12px 24px;
+  margin-left:180px;
+  height: 3rem;
+  margin-top: -10px;
 }
 
 footer {

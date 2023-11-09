@@ -67,6 +67,7 @@ def user_logout(request):
 def landing(request):
     return render(request, 'registration/landing.html')
 
+@login_required
 def bookshelf(request):
     user = request.user
     reading_list = Book.objects.filter(user=user)
@@ -85,7 +86,6 @@ def add_book(request):
             progress.save()
     return redirect('bookshelf')
 
-@login_required
 @require_POST
 def update_progress(request, book_id):
     user = request.user
