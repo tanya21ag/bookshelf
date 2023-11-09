@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 .main {
@@ -83,13 +84,13 @@ body {
 }
 
 .img1 {
-  width: 350px;
-  height: 220px;
+  width: 380px;
+  height: 250px;
 }
 
 .img2 {
-  width: 450px;
-  height: 350px;
+  width: 550px;
+  height: 300px;
   transform: translateY(-60px);
 }
 
