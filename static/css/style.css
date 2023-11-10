@@ -62,20 +62,41 @@ body, .navbar {
   font-size: 4rem;
   font-weight: 800;
   text-align: center;
-  margin-top: 70px;
-  margin-left: 65px;
   line-height: 1.1em;
   letter-spacing: -0.045em;
   color: #000;
 }
 
-.left-half {
-  width: 70%;
-  margin-right: 0.5rem;
-  margin-left: 1rem;
-  align-items: center;
-  justify-content: center;
+.typing-container {
+  height: 70px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
 
+.typing-text {
+  opacity: 0.9;
+  font-size: 18px;
+  white-space: pre-line;
+  overflow: hidden;
+  border-right: 1px solid #000;
+  animation: typing 0.8s steps(40) infinite;
+}
+
+.cursor {
+  width: 6px;
+  animation: blink 1s step-end infinite;
+}
+    
+.left-half {
+  width: 60%;
+  margin-right: 0.5rem;
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -160px;
 }
 
 .right-half {
@@ -86,7 +107,7 @@ body, .navbar {
   justify-content: flex-end;
   align-items: flex-end;
   overflow: hidden;
-  margin-top: 110px;
+  margin-top: 100px;
 }
 
 .img1 {
@@ -118,33 +139,6 @@ body, .navbar {
 .box {
   display: flex;
   justify-content: space-evenly;
-}
-
-.typing-container {
-  width: 420px;
-  height: 70px;
-  text-align: center;
-  margin-left: 90px;
-  margin-top: 30px;
-}
-
-.typing-text {
-  white-space: pre-wrap;
-  font-size: 18px;
-  display: inline-block;
-  opacity: 0.9;
-}
-
-.cursor {
-  display: inline-block;
-  width: 8px;
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
 }
 
 .login-page {
@@ -233,7 +227,6 @@ button a {
 
 .create-btn {
   padding: 12px 24px;
-  margin-left:180px;
   height: 3rem;
   margin-top: -10px;
 }
