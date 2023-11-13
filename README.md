@@ -1,5 +1,5 @@
 # Bookshelf - Book Reading Tracker
-<p>A simple web application implementing CRUD operations to manage book reading progress created using HTML, CSS, JavaScript, Bootstrap, Python, and Django.
+<p>A simple web application to manage book reading progress created using HTML, CSS, JavaScript, Bootstrap, Python, and Django.
 </p>
 
 ## Home
