@@ -7,11 +7,6 @@ body {
   display: flex;
 }
 
-body, .navbar {
-  background-color: #fff8da;
-
-}
-
 .navbar {
   height: 65px;
   border-bottom: 0.5px solid rgba(143, 62, 0, 0.1);
@@ -23,7 +18,6 @@ body, .navbar {
   font-size: 1.9rem;
   margin-left: 0.75rem;
   letter-spacing: -0.045em;
-
 }
 
 .navbar-nav {
@@ -34,7 +28,6 @@ body, .navbar {
   margin-right: 0.75rem;
   text-decoration: none;
 }
-
 
 .btn-2 {
   background-color: #8f3e00;
@@ -59,7 +52,7 @@ body, .navbar {
 }
 
 .left-half h1 {
-  font-size: 4rem;
+  font-size: 3.9rem;
   font-weight: 800;
   text-align: center;
   line-height: 1.1em;
@@ -87,7 +80,7 @@ body, .navbar {
   width: 6px;
   animation: blink 1s step-end infinite;
 }
-    
+
 .left-half {
   width: 60%;
   margin-right: 0.5rem;
@@ -120,14 +113,13 @@ body, .navbar {
   height: 300px;
   transform: translateY(-60px);
   border-bottom: 10px solid black;
-
 }
 
-.img1, .img2 {
+.img1,
+.img2 {
   border-top: 10px solid black;
   border-left: 10px solid black;
   border-radius: 14px 0 0 0;
-
 }
 
 .above-img,
@@ -148,7 +140,6 @@ body, .navbar {
   height: 100vh;
   margin: 0;
   background-color: #f4f4f4;
-
 }
 
 .login-card {
@@ -176,7 +167,6 @@ body, .navbar {
   margin-bottom: 30px;
 }
 
-
 .login-card input {
   color: #8b8a91;
   width: 95%;
@@ -185,7 +175,6 @@ body, .navbar {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-
 }
 
 .login-card button {
@@ -222,7 +211,6 @@ button a {
   color: white;
   text-decoration: none;
   padding: 2px 4px 2px 4px;
-
 }
 
 .create-btn {
@@ -235,11 +223,81 @@ footer {
   margin-top: 100px;
   margin-bottom: 50px;
   border-top: 0.5px solid rgba(143, 62, 0, 0.1);
-
 }
 
 .footer-content {
   margin-top: 40px;
   margin-left: 40px;
   font-size: 13px;
+}
+
+.small-input {
+  width: 60px;
+  border-radius: 5px;
+}
+
+table.table-hover thead tr.top-row th {
+  background-color: #f4f4f4;
+}
+
+table.table-hover {
+  max-width: 85%;
+  /* margin: auto; */
+}
+
+table.table-hover th,
+table.table-hover td {
+  max-width: 170px;
+  /* overflow: hidden; */
+  vertical-align: middle;
+  text-overflow: ellipsis;
+}
+
+table {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Inter Tight', sans-serif;
+  margin-top: 20px;
+}
+
+table.table-hover input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+
+.add-book-form h2 {
+  font-weight: 600;
+  font-size: 25px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.add-book-form input {
+  height: 35px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.book-details {
+  width: 200px;
+}
+
+main {
+  margin-top: 30px;
+}
+
+.top-row {
+  height:50px;
+}
+
+.caption {
+  font-weight: 800;
+  font-size: 2.5rem;
+  letter-spacing: -2.5px;
+  margin-bottom: 25px;
+}
+
+.started-new {
+  margin-top: 70px;
 }
