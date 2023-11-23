@@ -18,9 +18,6 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def faq(request):
-    return render(request, 'faq.html')
-
 def contact(request):
     if request.method == "POST":
         name = request.POST.get('name')

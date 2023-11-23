@@ -15,5 +15,4 @@ urlpatterns = [
     path('add_book/', views.add_book, name='add_book'),
     path('update_progress/<int:book_id>/', views.update_progress, name='update_progress'),
     path('delete_book/<int:book_id>/', views.delete_book, name='delete_book'),
-
 ]
