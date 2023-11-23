@@ -3,7 +3,9 @@
 </p>
 
 ## Home
-![Screenshot (150)](https://github.com/tanya21ag/bookshelf/assets/127618645/fe284265-5591-4baf-aa50-d8a96358da61)
+![Screenshot (171)](https://github.com/tanya21ag/bookshelf/assets/127618645/3088b5cb-24cb-4c5b-a151-2d2d2808e9c1)
+
+![Screenshot (172)](https://github.com/tanya21ag/bookshelf/assets/127618645/00b72421-a618-428f-b579-acfd14c3cfe7)
 
 ## Sign in
 ![Screenshot (151)](https://github.com/tanya21ag/bookshelf/assets/127618645/3dfdfe8f-7ee1-4502-b9ef-a824ed3cf6b2)
