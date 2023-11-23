@@ -8,10 +8,10 @@
 ![Screenshot (174)](https://github.com/tanya21ag/bookshelf/assets/127618645/83e47c7d-e707-406c-93ab-013cd1ec9d60)
 
 ## Sign in
-![Screenshot (151)](https://github.com/tanya21ag/bookshelf/assets/127618645/3dfdfe8f-7ee1-4502-b9ef-a824ed3cf6b2)
+![Screenshot (176)](https://github.com/tanya21ag/bookshelf/assets/127618645/0e770bea-aa8a-4447-a248-0d67119214ab)
 
 ## Sign up
-![Screenshot (152)](https://github.com/tanya21ag/bookshelf/assets/127618645/ff89ba0c-a63d-4bd5-9ac4-54c9d0a72e26)
+![Screenshot (177)](https://github.com/tanya21ag/bookshelf/assets/127618645/43753a47-494f-4550-ab5f-96bcf497aa63)
 
 ## Bookshelf
 ![Screenshot (153)](https://github.com/tanya21ag/bookshelf/assets/127618645/010873f9-ee63-4176-a25c-8bcdf6f5deff)
