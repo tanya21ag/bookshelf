@@ -5,7 +5,7 @@
 ## Home
 ![Screenshot (171)](https://github.com/tanya21ag/bookshelf/assets/127618645/3088b5cb-24cb-4c5b-a151-2d2d2808e9c1)
 
-![Screenshot (172)](https://github.com/tanya21ag/bookshelf/assets/127618645/00b72421-a618-428f-b579-acfd14c3cfe7)
+![Screenshot (174)](https://github.com/tanya21ag/bookshelf/assets/127618645/83e47c7d-e707-406c-93ab-013cd1ec9d60)
 
 ## Sign in
 ![Screenshot (151)](https://github.com/tanya21ag/bookshelf/assets/127618645/3dfdfe8f-7ee1-4502-b9ef-a824ed3cf6b2)
